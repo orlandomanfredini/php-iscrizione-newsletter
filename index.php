@@ -26,15 +26,7 @@ spostate la funzione in un file utilities.php ed includetelo
 
 
 
- function checkEmail($email){
-    
-    if(str_contains($email, '@') && str_contains($email, '.')){
-        return true ;
-    }else {
-        return false;
-    }
-
- }
+ include __DIR__ . '/utilities.php';
  ?>
 
  <!DOCTYPE html>
@@ -51,7 +43,7 @@ spostate la funzione in un file utilities.php ed includetelo
       <form action="" method="POST" class="d-flex justify-content-center">
       
         <input class="align-self-center" type="text" name="email" id="email" placeholder="Inserisci email...">
-        <button type="button" class="btn btn-primary p-0 mx-1">INVIA</button>
+        <button class="btn btn-primary p-0 mx-1">INVIA</button>
       </form>
      <?php if (checkEmail($email)){ ?>
         <div class="alert alert-success mt-3 " role="alert">
