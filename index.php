@@ -14,11 +14,20 @@ spostate la funzione in un file utilities.php ed includetelo
  nel file inde.php come visto in classe. -->
 
  <?php
- $email = $_POST['email'] ?? null;
- var_dump($email);
+ $email = $_POST['email'] ?? '';
+
+// $email = $_POST['email'] ? $_POST['email'] : ''
+
+
+
+// if(array_key_exists('email', $_POST)){
+//     $email = $_POST['email'];
+// }
+
+
 
  function checkEmail($email){
-    $output= '';
+    
     if(str_contains($email, '@') && str_contains($email, '.')){
         return true ;
     }else {
@@ -37,12 +46,23 @@ spostate la funzione in un file utilities.php ed includetelo
     <title>FORM NEWSLETTER</title>
  </head>
  <body>
-    <h1>NEWSLETTER</h1>
-    <form action="" method="POST">
-        <label for="email">EMAIL</label>
-        <input type="text" name="email" id="email" placeholder="Inserisci email...">
-        <button>INVIA</button>
-    </form>
-    <p><?php echo checkEmail($email) === true ? 'success' : 'repeat' ?></p>
- </body>
- </html>
+    <div class="container text-center">
+        <h1 >NEWSLETTER</h1>
+      <form action="" method="POST" class="d-flex justify-content-center">
+      
+        <input class="align-self-center" type="text" name="email" id="email" placeholder="Inserisci email...">
+        <button type="button" class="btn btn-primary p-0 mx-1">INVIA</button>
+      </form>
+     <?php if (checkEmail($email)){ ?>
+        <div class="alert alert-success mt-3 " role="alert">
+           CORRECT MAIL
+        </div>
+     <?php } else { ?>
+        <div class="alert alert-danger mt-3 " role="alert">
+           REPEAT
+        </div>
+     <?php } ?>
+    </div>
+    
+</body>
+</html>
