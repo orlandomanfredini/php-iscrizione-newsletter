@@ -19,10 +19,10 @@ spostate la funzione in un file utilities.php ed includetelo
 
  function checkEmail($email){
     $output= '';
-    if(in_array('@', $email) && in_array('.', $email)){
-        return  var_dump($output = 'success') ;
+    if(str_contains($email, '@') && str_contains($email, '.')){
+        return true ;
     }else {
-        return var_dump($output = 'danied');
+        return false;
     }
 
  }
@@ -40,9 +40,9 @@ spostate la funzione in un file utilities.php ed includetelo
     <h1>NEWSLETTER</h1>
     <form action="" method="POST">
         <label for="email">EMAIL</label>
-        <input type="email" name="email" id="email" placeholder="Inserisci email...">
+        <input type="text" name="email" id="email" placeholder="Inserisci email...">
         <button>INVIA</button>
     </form>
-    <p><?php echo $output ?></p>
+    <p><?php echo checkEmail($email) === true ? 'success' : 'repeat' ?></p>
  </body>
  </html>
