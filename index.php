@@ -38,7 +38,8 @@ spostate la funzione in un file utilities.php ed includetelo
     <title>FORM NEWSLETTER</title>
  </head>
  <body>
-    <div class="container text-center mt-5">
+    <?php include __DIR__ . '/header.php'; ?>
+    <main class="container text-center mt-5">
         <h1 class="text-primary" >NEWSLETTER</h1>
       <form action="" method="POST" class="d-flex justify-content-center">
       
@@ -54,7 +55,8 @@ spostate la funzione in un file utilities.php ed includetelo
            REPEAT
         </div>
      <?php } ?>
-    </div>
+     </main>
+    <?php include __DIR__ . '/footer.php' ;?>
     
-</body>
+ </body>
 </html>
