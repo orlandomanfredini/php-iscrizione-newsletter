@@ -15,19 +15,23 @@ spostate la funzione in un file utilities.php ed includetelo
 
  <?php
  $email = $_POST['email'] ?? '';
+ 
+ include __DIR__ . '/utilities.php';
+
+ if($email){
+    session_start();
+
+    $_SESSION['email'] = $email;
+
+    header('Location: ./subscription.php');
+ }
 
 // $email = $_POST['email'] ? $_POST['email'] : ''
-
-
 
 // if(array_key_exists('email', $_POST)){
 //     $email = $_POST['email'];
 // }
-
-
-
- include __DIR__ . '/utilities.php';
- ?>
+?>
 
  <!DOCTYPE html>
  <html lang="en">
@@ -39,23 +43,14 @@ spostate la funzione in un file utilities.php ed includetelo
  </head>
  <body>
     <?php include __DIR__ . '/header.php'; ?>
-    <main class="container text-center mt-5">
-        <h1 class="text-primary" >NEWSLETTER</h1>
+    <div class="container text-center mt-5">
+      <h1 class="text-primary" >NEWSLETTER</h1>
       <form action="" method="POST" class="d-flex justify-content-center">
-      
         <input class="align-self-center" type="text" name="email" id="email" placeholder="Inserisci email...">
         <button class="btn btn-primary px-2 py-0 mx-1">INVIA</button>
       </form>
-     <?php if (checkEmail($email)){ ?>
-        <div class="alert alert-success mt-3 " role="alert">
-           CORRECT MAIL
-        </div>
-     <?php } else { ?>
-        <div class="alert alert-danger mt-3 " role="alert">
-           REPEAT
-        </div>
-     <?php } ?>
-     </main>
+     
+    </div>
     <?php include __DIR__ . '/footer.php' ;?>
     
  </body>
