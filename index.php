@@ -38,12 +38,12 @@ spostate la funzione in un file utilities.php ed includetelo
     <title>FORM NEWSLETTER</title>
  </head>
  <body>
-    <div class="container text-center">
-        <h1 >NEWSLETTER</h1>
+    <div class="container text-center mt-5">
+        <h1 class="text-primary" >NEWSLETTER</h1>
       <form action="" method="POST" class="d-flex justify-content-center">
       
         <input class="align-self-center" type="text" name="email" id="email" placeholder="Inserisci email...">
-        <button class="btn btn-primary p-0 mx-1">INVIA</button>
+        <button class="btn btn-primary px-2 py-0 mx-1">INVIA</button>
       </form>
      <?php if (checkEmail($email)){ ?>
         <div class="alert alert-success mt-3 " role="alert">
